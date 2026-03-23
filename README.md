@@ -2,7 +2,7 @@
 
 一个基于 Chrome Manifest V3 的浏览器扩展，用来在网页里标记用户、收藏评论，并在扩展弹窗中统一管理这些数据。
 
-当前仓库的扩展源码位于 `src/` 目录，加载扩展时请选择这个目录。
+当前仓库的扩展源码位于 `src/` 目录，加载扩展时请选择这个目录。本项目基于vibe coding
 
 ## 当前已实现功能
 
@@ -43,17 +43,15 @@
 - 知乎 `zhihu.com`
 - IT之家 `ithome.com`
 
-### 已声明但未完整落地
+### 待适配
 - 微博 `weibo.com`
-
-说明：`manifest.json` 中已经包含微博权限，但当前 `content-full.js` 只实现了知乎和 IT 之家的站点配置，因此 README 按实际可用能力描述。
 
 ## 安装方式
 
 1. 打开 Chrome，进入 `chrome://extensions/`
 2. 打开右上角“开发者模式”
 3. 点击“加载已解压的扩展程序”
-4. 选择目录 `/Users/gaoyakang/Documents/Gitlab/BlockLists/src`
+4. 选择目录 `src`
 
 安装完成后，扩展会出现在浏览器工具栏中。
 
@@ -108,36 +106,6 @@ BlockLists/
     ├── install.sh
     └── 其他说明文档
 ```
-
-其中几个关键文件：
-- `src/manifest.json`：扩展清单
-- `src/content-full.js`：页面注入、站点适配、标记/收藏交互
-- `src/background-full.js`：数据存储和消息处理
-- `src/popup/popup-full.js`：弹窗管理界面逻辑
-- `src/options/options.js`：设置页逻辑
-
-## 开发说明
-
-仓库当前以“直接加载源码到浏览器”方式开发，没有真正的打包流程。
-
-可用命令：
-
-```bash
-cd /Users/gaoyakang/Documents/Gitlab/BlockLists/src
-npm install
-npm run dev
-```
-
-说明：
-- `npm run dev` 目前只输出提示信息，不会启动本地开发服务器
-- 修改代码后，需要回到扩展页面手动点击“刷新”
-
-## 已知限制
-
-- 当前内容脚本仅实现知乎和 IT 之家适配
-- 微博权限已保留，但尚未在内容脚本中完成适配
-- 设置页中有“清除所有数据”入口，但后台脚本当前未实现对应消息处理，现阶段更稳妥的做法是分别清空用户和评论
-- 仓库中同时保留了一套模块化草稿文件和一套 `*-full.js` 的实际运行版本，浏览器实际加载的是后者
 
 ## 许可证
 
