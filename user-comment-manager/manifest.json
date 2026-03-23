@@ -1,0 +1,59 @@
+{
+  "manifest_version": 3,
+  "name": "用户标记与评论收藏器",
+  "version": "1.0.0",
+  "description": "标记知乎、IT之家、微博用户并收藏其历史评论",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "https://www.zhihu.com/*",
+    "https://www.ithome.com/*",
+    "https://ithome.com/*",
+    "https://m.ithome.com/*",
+    "https://weibo.com/*"
+  ],
+  "background": {
+    "service_worker": "background-full.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.zhihu.com/*",
+        "https://zhihu.com/*",
+        "https://www.ithome.com/*",
+        "https://ithome.com/*",
+        "https://m.ithome.com/*",
+        "https://weibo.com/*"
+      ],
+      "js": ["content-full.js"],
+      "css": ["assets/styles/common.css"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/styles/common.css"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "用户标记与评论收藏器",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "options_page": "options/options.html",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

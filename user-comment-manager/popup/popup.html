@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用户标记与评论收藏器</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="app">
+    <!-- 头部工具栏 -->
+    <div class="ucm-toolbar">
+      <div class="ucm-toolbar-title">用户标记与评论收藏器</div>
+      <div class="ucm-toolbar-actions">
+        <button class="ucm-button-secondary" id="btn-export">导出</button>
+        <button class="ucm-button-secondary" id="btn-import">导入</button>
+        <button class="ucm-button-secondary" id="btn-settings">设置</button>
+      </div>
+    </div>
+
+    <!-- 搜索栏 -->
+    <div class="ucm-search-bar">
+      <input type="text" class="ucm-search-input" id="search-input" placeholder="搜索用户或评论...">
+      <button class="ucm-search-button" id="btn-search">搜索</button>
+    </div>
+
+    <!-- 标签云 -->
+    <div class="ucm-tag-cloud" id="tag-cloud">
+      <!-- 动态生成标签 -->
+    </div>
+
+    <!-- 统计信息 -->
+    <div class="ucm-stats-container" id="stats-container">
+      <div class="ucm-stats-card">
+        <div class="ucm-stats-value" id="user-count">0</div>
+        <div class="ucm-stats-label">标记用户</div>
+      </div>
+      <div class="ucm-stats-card">
+        <div class="ucm-stats-value" id="comment-count">0</div>
+        <div class="ucm-stats-label">收藏评论</div>
+      </div>
+    </div>
+
+    <!-- 标签页 -->
+    <div class="ucm-tabs">
+      <button class="ucm-tab active" data-tab="users">用户列表</button>
+      <button class="ucm-tab" data-tab="comments">评论收藏</button>
+      <button class="ucm-tab" data-tab="tags">标签管理</button>
+    </div>
+
+    <!-- 内容区域 -->
+    <div class="ucm-content">
+      <!-- 用户列表 -->
+      <div class="ucm-tab-content active" id="users-tab">
+        <div id="user-list" class="ucm-list">
+          <!-- 动态生成用户列表 -->
+        </div>
+        <div class="ucm-empty-state" id="user-empty" style="display: none;">
+          <div class="ucm-empty-state-icon">👤</div>
+          <div>暂无标记的用户</div>
+        </div>
+      </div>
+
+      <!-- 评论列表 -->
+      <div class="ucm-tab-content" id="comments-tab">
+        <div id="comment-list" class="ucm-list">
+          <!-- 动态生成评论列表 -->
+        </div>
+        <div class="ucm-empty-state" id="comment-empty" style="display: none;">
+          <div class="ucm-empty-state-icon">💬</div>
+          <div>暂无收藏的评论</div>
+        </div>
+      </div>
+
+      <!-- 标签管理 -->
+      <div class="ucm-tab-content" id="tags-tab">
+        <div class="ucm-tag-manager" style="padding: 10px;">
+          <div style="display: flex; gap: 8px; margin-bottom: 15px;">
+            <input type="text" id="new-tag-input" class="ucm-input" placeholder="输入新标签名称..." style="flex: 1;">
+            <button id="add-tag-btn" class="ucm-button-primary">添加标签</button>
+          </div>
+          <div id="tags-list" style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <!-- 动态生成标签列表 -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 导入对话框 -->
+    <div class="ucm-popup-modal" id="import-modal" style="display: none;">
+      <div class="ucm-popup-modal-content">
+        <div class="ucm-popup-modal-header">导入数据</div>
+        <div class="ucm-popup-modal-body">
+          <div class="ucm-form-group">
+            <label class="ucm-form-label">选择JSON文件</label>
+            <input type="file" class="ucm-input" id="import-file" accept=".json">
+            <div class="ucm-form-help">选择之前导出的数据文件</div>
+          </div>
+        </div>
+        <div class="ucm-popup-modal-footer">
+          <button class="ucm-button-secondary" id="btn-cancel-import">取消</button>
+          <button class="ucm-button-primary" id="btn-confirm-import">导入</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 消息提示 -->
+    <div class="ucm-popup-notification" id="notification" style="display: none;"></div>
+  </div>
+
+  <script src="popup-full.js"></script>
+</body>
+</html>

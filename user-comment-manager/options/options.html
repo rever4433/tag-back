@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>设置 - 用户标记与评论收藏器</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div id="app">
+    <!-- 头部 -->
+    <div class="ucm-header">
+      <h1>用户标记与评论收藏器 - 设置</h1>
+      <p class="ucm-subtitle">配置插件行为和数据管理</p>
+    </div>
+
+    <!-- 标签页导航 -->
+    <div class="ucm-tabs">
+      <button class="ucm-tab active" data-tab="sites">网站配置</button>
+      <button class="ucm-tab" data-tab="data">数据管理</button>
+      <button class="ucm-tab" data-tab="settings">外观设置</button>
+    </div>
+
+    <!-- 内容区域 -->
+    <div class="ucm-content">
+      <!-- 网站配置 -->
+      <div class="ucm-tab-content active" id="sites-tab">
+        <div class="ucm-section">
+          <h2>启用的网站</h2>
+          <p class="ucm-description">选择要在哪些网站上启用用户标记与评论收藏功能</p>
+
+          <div class="ucm-site-list">
+            <label class="ucm-site-item">
+              <input type="checkbox" class="ucm-site-checkbox" data-site="zhihu.com" checked>
+              <span class="ucm-site-name">知乎 (zhihu.com)</span>
+              <span class="ucm-site-desc">问答社区</span>
+            </label>
+
+            <label class="ucm-site-item">
+              <input type="checkbox" class="ucm-site-checkbox" data-site="ithome.com" checked>
+              <span class="ucm-site-name">IT之家 (ithome.com)</span>
+              <span class="ucm-site-desc">科技资讯网站</span>
+            </label>
+
+            <label class="ucm-site-item">
+              <input type="checkbox" class="ucm-site-checkbox" data-site="weibo.com" checked>
+              <span class="ucm-site-name">微博 (weibo.com)</span>
+              <span class="ucm-site-desc">社交媒体</span>
+            </label>
+          </div>
+
+          <div class="ucm-form-group">
+            <label class="ucm-form-label">自定义网站规则</label>
+            <textarea class="ucm-textarea" id="custom-rules" placeholder="输入自定义的网站规则（JSON格式）..."></textarea>
+            <div class="ucm-form-help">高级选项：为其他网站添加自定义规则</div>
+          </div>
+
+          <div class="ucm-button-group">
+            <button class="ucm-button-primary" id="btn-save-sites">保存配置</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 数据管理 -->
+      <div class="ucm-tab-content" id="data-tab">
+        <div class="ucm-section">
+          <h2>数据导出</h2>
+          <p class="ucm-description">导出所有标记的用户和收藏的评论数据</p>
+
+          <div class="ucm-button-group">
+            <button class="ucm-button-primary" id="btn-export-data">导出数据</button>
+            <button class="ucm-button-secondary" id="btn-export-users">仅导出用户</button>
+            <button class="ucm-button-secondary" id="btn-export-comments">仅导出评论</button>
+          </div>
+        </div>
+
+        <div class="ucm-section">
+          <h2>数据导入</h2>
+          <p class="ucm-description">从JSON文件导入数据（会与现有数据合并）</p>
+
+          <div class="ucm-form-group">
+            <label class="ucm-form-label">选择JSON文件</label>
+            <input type="file" class="ucm-input" id="import-file" accept=".json">
+          </div>
+
+          <div class="ucm-button-group">
+            <button class="ucm-button-primary" id="btn-import-data">导入数据</button>
+          </div>
+        </div>
+
+        <div class="ucm-section">
+          <h2>数据清理</h2>
+          <p class="ucm-description">管理存储的数据</p>
+
+          <div class="ucm-stats-container">
+            <div class="ucm-stats-card">
+              <div class="ucm-stats-value" id="user-count">0</div>
+              <div class="ucm-stats-label">标记用户</div>
+            </div>
+            <div class="ucm-stats-card">
+              <div class="ucm-stats-value" id="comment-count">0</div>
+              <div class="ucm-stats-label">收藏评论</div>
+            </div>
+            <div class="ucm-stats-card">
+              <div class="ucm-stats-value" id="data-size">0 KB</div>
+              <div class="ucm-stats-label">数据大小</div>
+            </div>
+          </div>
+
+          <div class="ucm-button-group">
+            <button class="ucm-button-danger" id="btn-clear-users">清除所有用户</button>
+            <button class="ucm-button-danger" id="btn-clear-comments">清除所有评论</button>
+            <button class="ucm-button-danger" id="btn-clear-all">清除所有数据</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 外观设置 -->
+      <div class="ucm-tab-content" id="settings-tab">
+        <div class="ucm-section">
+          <h2>标记样式</h2>
+          <p class="ucm-description">自定义标记按钮和标识的外观</p>
+
+          <div class="ucm-form-group">
+            <label class="ucm-form-label">默认标记颜色</label>
+            <div class="ucm-color-picker" id="default-color-picker">
+              <div class="ucm-color-option selected" style="background: #4285F4" data-color="#4285F4"></div>
+              <div class="ucm-color-option" style="background: #34A853" data-color="#34A853"></div>
+              <div class="ucm-color-option" style="background: #EA4335" data-color="#EA4335"></div>
+              <div class="ucm-color-option" style="background: #FBBC05" data-color="#FBBC05"></div>
+              <div class="ucm-color-option" style="background: #9334E6" data-color="#9334E6"></div>
+              <div class="ucm-color-option" style="background: #00ACC1" data-color="#00ACC1"></div>
+              <div class="ucm-color-option" style="background: #FF6D00" data-color="#FF6D00"></div>
+              <div class="ucm-color-option" style="background: #C2185B" data-color="#C2185B"></div>
+            </div>
+          </div>
+
+          <div class="ucm-form-group">
+            <label class="ucm-form-label">标记按钮文本</label>
+            <input type="text" class="ucm-input" id="mark-button-text" value="标记" placeholder="标记">
+            <div class="ucm-form-help">自定义标记按钮显示的文本</div>
+          </div>
+
+          <div class="ucm-form-group">
+            <label class="ucm-form-label">收藏按钮文本</label>
+            <input type="text" class="ucm-input" id="save-button-text" value="收藏" placeholder="收藏">
+            <div class="ucm-form-help">自定义收藏按钮显示的文本</div>
+          </div>
+        </div>
+
+        <div class="ucm-section">
+          <h2>行为设置</h2>
+          <p class="ucm-description">配置插件的行为选项</p>
+
+          <div class="ucm-form-group">
+            <label class="ucm-form-label">
+              <input type="checkbox" id="auto-mark" class="ucm-checkbox">
+              自动标记当前页面用户
+            </label>
+            <div class="ucm-form-help">在支持的网站上自动标记当前页面的用户</div>
+          </div>
+
+          <div class="ucm-form-group">
+            <label class="ucm-form-label">
+              <input type="checkbox" id="notification-enabled" class="ucm-checkbox" checked>
+              启用通知
+            </label>
+            <div class="ucm-form-help">显示操作结果通知</div>
+          </div>
+
+          <div class="ucm-form-group">
+            <label class="ucm-form-label">
+              <input type="checkbox" id="auto-save-comments" class="ucm-checkbox">
+              自动保存选中的评论
+            </label>
+            <div class="ucm-form-help">选中评论时自动显示收藏选项</div>
+          </div>
+        </div>
+
+        <div class="ucm-section">
+          <h2>快捷键</h2>
+          <p class="ucm-description">配置键盘快捷键</p>
+
+          <div class="ucm-form-group">
+            <label class="ucm-form-label">标记当前用户</label>
+            <input type="text" class="ucm-input" id="shortcut-mark" value="Alt+M" readonly>
+          </div>
+
+          <div class="ucm-form-group">
+            <label class="ucm-form-label">收藏选中评论</label>
+            <input type="text" class="ucm-input" id="shortcut-save" value="Alt+S" readonly>
+          </div>
+
+          <div class="ucm-form-group">
+            <label class="ucm-form-label">打开弹出窗口</label>
+            <input type="text" class="ucm-input" id="shortcut-popup" value="Alt+P" readonly>
+          </div>
+        </div>
+
+        <div class="ucm-button-group">
+          <button class="ucm-button-primary" id="btn-save-settings">保存设置</button>
+          <button class="ucm-button-secondary" id="btn-reset-settings">重置为默认</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 消息提示 -->
+    <div class="ucm-notification" id="notification" style="display: none;"></div>
+  </div>
+
+  <script src="options.js" type="module"></script>
+</body>
+</html>

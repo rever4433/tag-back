@@ -1,0 +1,594 @@
+/* 用户标记与评论收藏器 - 公共样式 */
+/* 注意：此样式表仅用于内容脚本（注入到网页中），不应用于弹出窗口或选项页面 */
+/* 弹出窗口请使用 popup/popup.css，选项页面请使用 options/options.css */
+
+/* 标记按钮样式 */
+.ucm-mark-button {
+  background: #4285F4 !important;
+  color: white !important;
+  border: none !important;
+  padding: 4px 8px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  font-size: 12px !important;
+  margin-left: 4px !important;
+  margin-right: 4px !important;
+  vertical-align: middle !important;
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 9999 !important;
+  white-space: nowrap !important;
+  line-height: normal !important;
+  transition: all 0.2s ease !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2) !important;
+}
+
+.ucm-mark-button:hover {
+  opacity: 0.9 !important;
+  transform: scale(1.05) !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3) !important;
+}
+
+/* 收藏按钮样式 */
+.ucm-save-button {
+  background: #34A853 !important;
+  color: white !important;
+  border: none !important;
+  padding: 4px 8px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  font-size: 12px !important;
+  margin-left: 4px !important;
+  vertical-align: middle !important;
+  transition: all 0.2s ease !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+.ucm-save-button:hover {
+  opacity: 0.9 !important;
+  transform: scale(1.05) !important;
+}
+
+/* 已标记用户标识 */
+.ucm-marked-indicator {
+  background: #4285F4 !important;
+  color: white !important;
+  padding: 2px 6px !important;
+  border-radius: 10px !important;
+  font-size: 10px !important;
+  margin-left: 4px !important;
+  vertical-align: middle !important;
+  cursor: pointer !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  transition: all 0.2s ease !important;
+}
+
+.ucm-marked-indicator:hover {
+  opacity: 0.8 !important;
+}
+
+/* 标记按钮容器 */
+.ucm-button-container {
+  display: inline-block !important;
+  white-space: nowrap !important;
+}
+
+/* 弹出窗口样式 - 仅用于内容脚本注入的弹出窗口 */
+.ucm-popup {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  background: white !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+  z-index: 10000 !important;
+  max-width: 80vw !important;
+  max-height: 80vh !important;
+  overflow: auto !important;
+  padding: 20px !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* 遮罩层 */
+.ucm-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  z-index: 9999 !important;
+}
+
+/* 通知样式 */
+.ucm-notification {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  color: white !important;
+  padding: 12px 20px !important;
+  border-radius: 4px !important;
+  z-index: 10001 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) !important;
+  animation: slideIn 0.3s ease !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+.ucm-notification-success {
+  background: #34A853 !important;
+}
+
+.ucm-notification-error {
+  background: #EA4335 !important;
+}
+
+.ucm-notification-info {
+  background: #4285F4 !important;
+}
+
+/* 动画 */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* 标记管理面板 */
+.ucm-panel {
+  background: white !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+  padding: 16px !important;
+  margin: 8px 0 !important;
+}
+
+.ucm-panel-title {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  margin-bottom: 12px !important;
+  color: #333 !important;
+}
+
+.ucm-panel-content {
+  font-size: 14px !important;
+  color: #666 !important;
+  line-height: 1.5 !important;
+}
+
+/* 按钮组 */
+.ucm-button-group {
+  display: flex !important;
+  gap: 8px !important;
+  margin-top: 12px !important;
+}
+
+.ucm-button-primary {
+  background: #4285F4 !important;
+  color: white !important;
+  border: none !important;
+  padding: 8px 16px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  font-size: 14px !important;
+}
+
+.ucm-button-secondary {
+  background: #f1f3f4 !important;
+  color: #333 !important;
+  border: none !important;
+  padding: 8px 16px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  font-size: 14px !important;
+}
+
+.ucm-button-danger {
+  background: #EA4335 !important;
+  color: white !important;
+  border: none !important;
+  padding: 8px 16px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  font-size: 14px !important;
+}
+
+/* 输入框 */
+.ucm-input {
+  width: 100% !important;
+  padding: 8px 12px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+  box-sizing: border-box !important;
+}
+
+.ucm-input:focus {
+  outline: none !important;
+  border-color: #4285F4 !important;
+  box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2) !important;
+}
+
+/* 文本域 */
+.ucm-textarea {
+  width: 100% !important;
+  padding: 8px 12px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+  resize: vertical !important;
+  min-height: 80px !important;
+  box-sizing: border-box !important;
+}
+
+.ucm-textarea:focus {
+  outline: none !important;
+  border-color: #4285F4 !important;
+  box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2) !important;
+}
+
+/* 标签 */
+.ucm-tag {
+  display: inline-block !important;
+  background: #e8f0fe !important;
+  color: #1a73e8 !important;
+  padding: 2px 8px !important;
+  border-radius: 12px !important;
+  font-size: 12px !important;
+  margin: 2px !important;
+}
+
+.ucm-tag:hover {
+  background: #d2e3fc !important;
+  cursor: pointer !important;
+}
+
+/* 列表 */
+.ucm-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.ucm-list-item {
+  padding: 12px !important;
+  border-bottom: 1px solid #eee !important;
+  cursor: pointer !important;
+  transition: background 0.2s ease !important;
+}
+
+.ucm-list-item:hover {
+  background: #f8f9fa !important;
+}
+
+.ucm-list-item:last-child {
+  border-bottom: none !important;
+}
+
+/* 用户项 */
+.ucm-user-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.ucm-user-avatar {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  background: #e8f0fe !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 14px !important;
+  color: #1a73e8 !important;
+  font-weight: 600 !important;
+}
+
+.ucm-user-info {
+  flex: 1 !important;
+}
+
+.ucm-user-name {
+  font-weight: 600 !important;
+  color: #333 !important;
+  font-size: 14px !important;
+}
+
+.ucm-user-meta {
+  font-size: 12px !important;
+  color: #666 !important;
+  margin-top: 2px !important;
+}
+
+/* 评论项 */
+.ucm-comment-item {
+  padding: 12px !important;
+  border: 1px solid #eee !important;
+  border-radius: 4px !important;
+  margin-bottom: 8px !important;
+}
+
+.ucm-comment-content {
+  font-size: 14px !important;
+  color: #333 !important;
+  line-height: 1.5 !important;
+  margin-bottom: 8px !important;
+}
+
+.ucm-comment-meta {
+  font-size: 12px !important;
+  color: #666 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+}
+
+/* 搜索栏 */
+.ucm-search-bar {
+  display: flex !important;
+  gap: 8px !important;
+  margin-bottom: 16px !important;
+}
+
+.ucm-search-input {
+  flex: 1 !important;
+  padding: 8px 12px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+}
+
+.ucm-search-button {
+  background: #4285F4 !important;
+  color: white !important;
+  border: none !important;
+  padding: 8px 16px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+}
+
+/* 标签云 */
+.ucm-tag-cloud {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  margin-bottom: 16px !important;
+}
+
+.ucm-tag-cloud-item {
+  background: #e8f0fe !important;
+  color: #1a73e8 !important;
+  padding: 4px 12px !important;
+  border-radius: 16px !important;
+  font-size: 12px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.ucm-tag-cloud-item:hover {
+  background: #d2e3fc !important;
+  transform: scale(1.05) !important;
+}
+
+.ucm-tag-cloud-item.active {
+  background: #4285F4 !important;
+  color: white !important;
+}
+
+/* 空状态 */
+.ucm-empty-state {
+  text-align: center !important;
+  padding: 32px !important;
+  color: #666 !important;
+}
+
+.ucm-empty-state-icon {
+  font-size: 48px !important;
+  margin-bottom: 16px !important;
+  opacity: 0.5 !important;
+}
+
+/* 加载状态 */
+.ucm-loading {
+  text-align: center !important;
+  padding: 20px !important;
+  color: #666 !important;
+}
+
+/* 工具栏 */
+.ucm-toolbar {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 16px !important;
+  padding-bottom: 12px !important;
+  border-bottom: 1px solid #eee !important;
+}
+
+.ucm-toolbar-title {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: #333 !important;
+}
+
+.ucm-toolbar-actions {
+  display: flex !important;
+  gap: 8px !important;
+}
+
+/* 模态框 - 仅用于内容脚本注入的模态框 */
+.ucm-modal {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  z-index: 10000 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.ucm-modal-content {
+  background: white !important;
+  border-radius: 8px !important;
+  padding: 24px !important;
+  max-width: 500px !important;
+  width: 90% !important;
+  max-height: 80vh !important;
+  overflow: auto !important;
+}
+
+.ucm-modal-header {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  margin-bottom: 16px !important;
+  color: #333 !important;
+}
+
+.ucm-modal-body {
+  margin-bottom: 16px !important;
+}
+
+.ucm-modal-footer {
+  display: flex !important;
+  justify-content: flex-end !important;
+  gap: 8px !important;
+}
+
+/* 表单组 */
+.ucm-form-group {
+  margin-bottom: 16px !important;
+}
+
+.ucm-form-label {
+  display: block !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  margin-bottom: 4px !important;
+  color: #333 !important;
+}
+
+.ucm-form-help {
+  font-size: 12px !important;
+  color: #666 !important;
+  margin-top: 4px !important;
+}
+
+/* 颜色选择器 */
+.ucm-color-picker {
+  display: flex !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+}
+
+.ucm-color-option {
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  border: 2px solid transparent !important;
+  transition: all 0.2s ease !important;
+}
+
+.ucm-color-option:hover {
+  transform: scale(1.1) !important;
+}
+
+.ucm-color-option.selected {
+  border-color: #333 !important;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #333 !important;
+}
+
+/* 统计卡片 */
+.ucm-stats-card {
+  background: #f8f9fa !important;
+  border-radius: 8px !important;
+  padding: 16px !important;
+  text-align: center !important;
+}
+
+.ucm-stats-value {
+  font-size: 24px !important;
+  font-weight: 600 !important;
+  color: #4285F4 !important;
+}
+
+.ucm-stats-label {
+  font-size: 12px !important;
+  color: #666 !important;
+  margin-top: 4px !important;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .ucm-popup {
+    max-width: 95vw !important;
+    padding: 16px !important;
+  }
+
+  .ucm-toolbar {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+
+  .ucm-search-bar {
+    flex-direction: column !important;
+  }
+
+  .ucm-button-group {
+    flex-wrap: wrap !important;
+  }
+}
+
+/* 滚动条样式 */
+.ucm-popup::-webkit-scrollbar {
+  width: 8px !important;
+}
+
+.ucm-popup::-webkit-scrollbar-track {
+  background: #f1f1f1 !important;
+  border-radius: 4px !important;
+}
+
+.ucm-popup::-webkit-scrollbar-thumb {
+  background: #888 !important;
+  border-radius: 4px !important;
+}
+
+.ucm-popup::-webkit-scrollbar-thumb:hover {
+  background: #555 !important;
+}
+
+/* 打印样式 */
+@media print {
+  .ucm-mark-button,
+  .ucm-save-button,
+  .ucm-marked-indicator,
+  .ucm-popup,
+  .ucm-overlay,
+  .ucm-notification {
+    display: none !important;
+  }
+}

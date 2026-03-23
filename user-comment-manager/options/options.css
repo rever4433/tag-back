@@ -1,0 +1,417 @@
+/* 选项页面样式 */
+/* 注意：此样式表仅用于选项页面（options/options.html），不应用于内容脚本 */
+/* 内容脚本请使用 assets/styles/common.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+#app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* 头部 */
+.ucm-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.ucm-header h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.ucm-subtitle {
+  font-size: 14px;
+  color: #666;
+}
+
+/* 标签页 */
+.ucm-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.ucm-tab {
+  padding: 12px 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  font-size: 14px;
+  color: #666;
+  transition: all 0.2s ease;
+}
+
+.ucm-tab:hover {
+  color: #333;
+  background: #f0f0f0;
+}
+
+.ucm-tab.active {
+  color: #4285F4;
+  border-bottom-color: #4285F4;
+  font-weight: 500;
+}
+
+/* 内容区域 */
+.ucm-content {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.ucm-tab-content {
+  display: none;
+  padding: 24px;
+}
+
+.ucm-tab-content.active {
+  display: block;
+}
+
+/* 章节 */
+.ucm-section {
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #eee;
+}
+
+.ucm-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.ucm-section h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.ucm-description {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+/* 网站列表 */
+.ucm-site-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.ucm-site-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.ucm-site-item:hover {
+  background: #e8f0fe;
+}
+
+.ucm-site-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.ucm-site-name {
+  font-weight: 500;
+  flex: 1;
+}
+
+.ucm-site-desc {
+  font-size: 12px;
+  color: #666;
+}
+
+/* 表单 */
+.ucm-form-group {
+  margin-bottom: 16px;
+}
+
+.ucm-form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.ucm-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.ucm-input:focus {
+  outline: none;
+  border-color: #4285F4;
+  box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+}
+
+.ucm-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  resize: vertical;
+  min-height: 100px;
+  font-family: monospace;
+}
+
+.ucm-textarea:focus {
+  outline: none;
+  border-color: #4285F4;
+  box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+}
+
+.ucm-form-help {
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* 复选框 */
+.ucm-checkbox {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+/* 颜色选择器 */
+.ucm-color-picker {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ucm-color-option {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.ucm-color-option:hover {
+  transform: scale(1.1);
+}
+
+.ucm-color-option.selected {
+  border-color: #333;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #333;
+}
+
+/* 按钮组 */
+.ucm-button-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.ucm-button-primary {
+  background: #4285F4;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.ucm-button-primary:hover {
+  background: #3367d6;
+}
+
+.ucm-button-secondary {
+  background: #f1f3f4;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.ucm-button-secondary:hover {
+  background: #e8eaed;
+}
+
+.ucm-button-danger {
+  background: #EA4335;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.ucm-button-danger:hover {
+  background: #d33426;
+}
+
+/* 统计卡片 */
+.ucm-stats-container {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.ucm-stats-card {
+  flex: 1;
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 16px;
+  text-align: center;
+}
+
+.ucm-stats-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: #4285F4;
+}
+
+.ucm-stats-label {
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* 通知 */
+.ucm-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 4px;
+  z-index: 1000;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.3s ease;
+  max-width: 300px;
+}
+
+.ucm-notification.success {
+  background: #34A853;
+}
+
+.ucm-notification.error {
+  background: #EA4335;
+}
+
+.ucm-notification.info {
+  background: #4285F4;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* 响应式调整 */
+@media (max-width: 600px) {
+  #app {
+    padding: 16px;
+  }
+
+  .ucm-header h1 {
+    font-size: 20px;
+  }
+
+  .ucm-tabs {
+    overflow-x: auto;
+  }
+
+  .ucm-tab {
+    padding: 10px 16px;
+    white-space: nowrap;
+  }
+
+  .ucm-tab-content {
+    padding: 16px;
+  }
+
+  .ucm-stats-container {
+    flex-direction: column;
+  }
+
+  .ucm-button-group {
+    flex-direction: column;
+  }
+
+  .ucm-button-primary,
+  .ucm-button-secondary,
+  .ucm-button-danger {
+    width: 100%;
+  }
+}
+
+/* 打印样式 */
+@media print {
+  .ucm-tabs,
+  .ucm-button-group,
+  .ucm-notification {
+    display: none !important;
+  }
+}

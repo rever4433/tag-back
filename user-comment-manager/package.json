@@ -1,0 +1,27 @@
+{
+  "name": "user-comment-manager",
+  "version": "1.0.0",
+  "description": "Chrome浏览器插件，用于标记知乎、IT之家、微博用户并收藏其历史评论",
+  "main": "background.js",
+  "scripts": {
+    "test": "echo \"No tests configured\" && exit 0",
+    "build": "echo \"Building Chrome extension...\"",
+    "dev": "echo \"Development mode - load extension manually in Chrome\""
+  },
+  "keywords": [
+    "chrome-extension",
+    "user-marking",
+    "comment-saving",
+    "zhihu",
+    "ithome",
+    "weibo"
+  ],
+  "author": "User Comment Manager Team",
+  "license": "MIT",
+  "devDependencies": {
+    "canvas": "^3.2.1",
+    "vue": "^3.4.0",
+    "vue-router": "^4.2.0",
+    "vuex": "^4.1.0"
+  }
+}

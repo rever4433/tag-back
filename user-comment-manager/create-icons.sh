@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# 创建简单的PNG图标占位符
+# 使用base64编码的1x1像素PNG图像
+
+# 16x16图标
+ICON16="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
+echo $ICON16 | base64 -d > icons/icon16.png
+
+# 48x48图标
+ICON48="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
+echo $ICON48 | base64 -d > icons/icon48.png
+
+# 128x128图标
+ICON128="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
+echo $ICON128 | base64 -d > icons/icon128.png
+
+echo "图标文件已创建"
